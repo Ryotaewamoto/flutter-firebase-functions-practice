@@ -1,9 +1,9 @@
+import * as firebaseAdmin from "firebase-admin";
 import * as functions from "firebase-functions";
+// eslint-disable-next-line import/namespace
+import * as addMessage from "./add_message";
 
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
+// Firebaseプロジェクトの初期化
+firebaseAdmin.initializeApp(functions.config().firebase);
 
-export const helloWorld = functions.https.onRequest((request, response) => {
-  functions.logger.info("Hello logs!", { structuredData: true });
-  response.send("Hello from Firebase!");
-});
+export { addMessage };
