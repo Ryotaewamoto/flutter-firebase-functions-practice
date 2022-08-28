@@ -1,4 +1,5 @@
 {
-    "eslint.workingDirectories": ["functions"]
-
+  "eslint.workingDirectories": ["functions"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
