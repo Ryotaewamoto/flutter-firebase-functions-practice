@@ -1,20 +1,23 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'firebase_options.dart';
+import 'pages/not_found_page.dart';
+import 'utils/global_key.dart';
+import 'utils/routing/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,53 +25,40 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RootNavigator(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+/// ウィジェットツリーの上位にある Navigator を含むウィジェット。
+class RootNavigator extends HookConsumerWidget {
+  const RootNavigator({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Stack(
+        children: [
+          Navigator(
+            key: ref.watch(globalKeyProvider),
+            initialRoute: ref.watch(appRouterProvider).initialRoute,
+            // Memo(iwamoto): onGenerateRoute: ref.watch(appRouterProvider).onGenerateRoute, としても良い
+            onGenerateRoute: (settings) => ref.watch(appRouterProvider).onGenerateRoute(settings),
+            onUnknownRoute: (settings) {
+              // Memo(iwamoto): https://zenn.dev/inari_sushio/articles/98a094b4faa6cc#route%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%88%EF%BC%89%E5%85%A8%E4%BD%93%E5%83%8F
+              // Route (抽象)クラスは、MaterialPageRoute (具象)クラスの親なので戻り値として問題ない。
+              final route = MaterialPageRoute<void>(
+                settings: settings,
+                builder: (context) => const NotFoundPage(),
+              );
+              return route;
+            },
+          ),
+          // if (ref.watch(overlayLoadingProvider)) const OverlayLoadingWidget(),
+        ],
       ),
     );
   }
 }
+
