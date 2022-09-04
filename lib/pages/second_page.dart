@@ -24,9 +24,17 @@ class SecondPage extends HookConsumerWidget {
                 context,
                 ThirdPage.location,
               );
-
             },
             child: const Text('次の画面に進む'),
+          ),
+          TextButton(
+            onPressed: () {
+              ref
+                  .watch(globalKeyProvider)
+                  .currentState!
+                  .pushNamed('/second/third');
+            },
+            child: const Text('初めの画面に進む'),
           ),
           Text(ref.watch(globalKeyProvider).toString()),
           Text(ref.read(globalKeyProvider).currentState.toString())

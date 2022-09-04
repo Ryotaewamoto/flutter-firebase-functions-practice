@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/third_page.dart';
 
+import '../../pages/about_page.dart';
+import '../../pages/home_page.dart';
 import '../../pages/main_page.dart';
 import 'app_route.dart';
 
@@ -14,6 +16,16 @@ final appRoutes = <AppRoute>[
     path: MainPage.path,
     name: MainPage.name,
     builder: (context, state) => const MainPage(key: ValueKey(MainPage.name)),
+  ),
+  AppRoute(
+    path: HomePage.path,
+    name: HomePage.name,
+    builder: (context, state) => const HomePage(key: ValueKey(HomePage.name)),
+  ),
+  AppRoute(
+    path: AboutPage.path,
+    name: AboutPage.name,
+    builder: (context, state) => const AboutPage(key: ValueKey(AboutPage.name)),
   ),
   AppRoute(
     path: SecondPage.path,
