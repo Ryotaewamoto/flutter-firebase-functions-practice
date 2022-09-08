@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_functions_practice/utils/global_key.dart';
+import 'package:flutter_firebase_functions_practice/features/dev_menus/dev_menus.dart';
+import 'package:flutter_firebase_functions_practice/utils/extensions/string.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DevelopmentPage extends HookConsumerWidget {
@@ -13,13 +14,24 @@ class DevelopmentPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: const Text('DevelopmentPage')),
-      body: Column(
-        children: [
-          Text(key.toString()),
-          const Text('development page'),
-          Text(ref.watch(globalKeyProvider).toString()),
-          Text(ref.read(globalKeyProvider).currentState.toString())
-        ],
+      body: ListView.builder(
+        itemCount: devMenus.length,
+        itemBuilder: (context, index) {
+          final devMenu = devMenus[index];
+          return InkWell(
+            onTap: () {
+              Navigator.pushNamed<void>(
+                context,
+                devMenu.location,
+              );
+            },
+            child: ListTile(
+              title: Text(devMenu.title),
+              subtitle: Text(devMenu.description.truncated(20)),
+              leading: CircleAvatar(radius: 16, backgroundColor: devMenu.color),
+            ),
+          );
+        },
       ),
     );
   }

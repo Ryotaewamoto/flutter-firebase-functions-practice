@@ -16,9 +16,7 @@ class AppRouter {
   AppRouter(this.appRoutes);
   final List<AppRoute> appRoutes;
   final initialRoute = '/';
-
-
-
+  
   /// MaterialApp や Navigator の onGenerateRoute に指定して、
   ///
   /// - 遷移するべき画面の決定、パスパラメータの解析

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_functions_practice/pages/image_api_page.dart';
+import 'package:flutter_firebase_functions_practice/pages/printing_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/third_page.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../pages/about_page.dart';
 import '../../pages/development_page.dart';
 import '../../pages/home_page.dart';
 import '../../pages/main_page.dart';
 import 'app_route.dart';
+import 'app_router_state.dart';
 
 /// AppRoute インスタンスの一覧
 /// 各ページのコンストラクタに引数を渡さない済むように、そのような場合は ProviderScope.override で
@@ -26,7 +30,8 @@ final appRoutes = <AppRoute>[
   AppRoute(
     path: DevelopmentPage.path,
     name: DevelopmentPage.name,
-    builder: (context, state) => const DevelopmentPage(key: ValueKey(DevelopmentPage.name)),
+    builder: (context, state) =>
+        const DevelopmentPage(key: ValueKey(DevelopmentPage.name)),
   ),
   AppRoute(
     path: AboutPage.path,
@@ -34,9 +39,23 @@ final appRoutes = <AppRoute>[
     builder: (context, state) => const AboutPage(key: ValueKey(AboutPage.name)),
   ),
   AppRoute(
+    path: ImageApiPage.path,
+    name: ImageApiPage.name,
+    builder: (context, state) => const ImageApiPage(
+      key: ValueKey(ImageApiPage.name),
+    ),
+  ),
+  AppRoute(
+    path: PrintingPage.path,
+    name: PrintingPage.name,
+    builder: (context, state) =>
+        const PrintingPage(key: ValueKey(PrintingPage.name)),
+  ),
+  AppRoute(
     path: SecondPage.path,
     name: SecondPage.name,
-    builder: (context, state) => const SecondPage(key: ValueKey(SecondPage.name)),
+    builder: (context, state) =>
+        const SecondPage(key: ValueKey(SecondPage.name)),
   ),
   AppRoute(
     path: ThirdPage.path,
