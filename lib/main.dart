@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'firebase_options.dart';
@@ -9,6 +10,7 @@ import 'utils/routing/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -44,7 +46,8 @@ class RootNavigator extends HookConsumerWidget {
             key: ref.watch(globalKeyProvider),
             initialRoute: ref.watch(appRouterProvider).initialRoute,
             // Memo(iwamoto): onGenerateRoute: ref.watch(appRouterProvider).onGenerateRoute, としても良い
-            onGenerateRoute: (settings) => ref.watch(appRouterProvider).onGenerateRoute(settings),
+            onGenerateRoute: (settings) =>
+                ref.watch(appRouterProvider).onGenerateRoute(settings),
             onUnknownRoute: (settings) {
               // Memo(iwamoto): https://zenn.dev/inari_sushio/articles/98a094b4faa6cc#route%EF%BC%88%E3%83%AB%E3%83%BC%E3%83%88%EF%BC%89%E5%85%A8%E4%BD%93%E5%83%8F
               // Route (抽象)クラスは、MaterialPageRoute (具象)クラスの親なので戻り値として問題ない。
@@ -61,4 +64,3 @@ class RootNavigator extends HookConsumerWidget {
     );
   }
 }
-
