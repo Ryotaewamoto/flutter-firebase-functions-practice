@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'firebase_options.dart';
 import 'pages/not_found_page.dart';
 import 'utils/global_key.dart';
+import 'utils/loading.dart';
 import 'utils/routing/app_router.dart';
 
 Future<void> main() async {
@@ -58,7 +59,7 @@ class RootNavigator extends HookConsumerWidget {
               return route;
             },
           ),
-          // if (ref.watch(overlayLoadingProvider)) const OverlayLoadingWidget(),
+          if (ref.watch(overlayLoadingProvider)) const OverlayLoadingWidget(),
         ],
       ),
     );

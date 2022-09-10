@@ -5,12 +5,12 @@ import 'package:flutter_firebase_functions_practice/pages/printing_page.dart';
 final devMenus = <DevMenu>[
   const DevMenu(
     title: 'API tutorial',
-    description: 'use image API',
+    description: 'using image API',
     location: ImageApiPage.location
   ),
   const DevMenu(
-    title: 'original printing',
-    description: 'create route to printing page',
+    title: 'Printing',
+    description: 'enable pdf preview and printing',
     location: PrintingPage.location,
   )
 ];
