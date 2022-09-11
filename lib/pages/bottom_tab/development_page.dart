@@ -27,7 +27,7 @@ class DevelopmentPage extends HookConsumerWidget {
             },
             child: ListTile(
               title: Text(devMenu.title),
-              subtitle: Text(devMenu.description.truncated(20)),
+              subtitle: Text(devMenu.description.truncated(40)),
               leading: CircleAvatar(radius: 16, backgroundColor: devMenu.color),
             ),
           );

@@ -1,6 +1,7 @@
-import 'package:flutter_firebase_functions_practice/models/dev_menu.dart';
-import 'package:flutter_firebase_functions_practice/pages/image_api_page.dart';
-import 'package:flutter_firebase_functions_practice/pages/printing_page.dart';
+import '../../models/dev_menu.dart';
+import '../../pages/development/image_api_page.dart';
+import '../../pages/development/printing_page.dart';
+import '../../pages/development/storage_printing_page.dart';
 
 final devMenus = <DevMenu>[
   const DevMenu(
@@ -10,7 +11,12 @@ final devMenus = <DevMenu>[
   ),
   const DevMenu(
     title: 'Printing',
-    description: 'enable pdf preview and printing',
+    description: 'enable pdf preview and printing from root',
     location: PrintingPage.location,
-  )
+  ),
+  const DevMenu(
+    title: 'StoragePrinting',
+    description: 'enable pdf preview and printing from storage',
+    location: StoragePrintingPage.location,
+  ),
 ];

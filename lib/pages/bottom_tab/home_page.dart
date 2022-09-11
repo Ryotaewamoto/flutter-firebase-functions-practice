@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'third_page.dart';
+import '../third_page.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});

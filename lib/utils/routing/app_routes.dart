@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_functions_practice/pages/image_api_page.dart';
-import 'package:flutter_firebase_functions_practice/pages/printing_page.dart';
+import 'package:flutter_firebase_functions_practice/pages/development/image_api_page.dart';
+import 'package:flutter_firebase_functions_practice/pages/development/printing_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/third_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../pages/about_page.dart';
-import '../../pages/development_page.dart';
-import '../../pages/home_page.dart';
+import '../../pages/bottom_tab/about_page.dart';
+import '../../pages/bottom_tab/development_page.dart';
+import '../../pages/bottom_tab/home_page.dart';
+import '../../pages/development/storage_printing_page.dart';
 import '../../pages/main_page.dart';
 import 'app_route.dart';
 import 'app_router_state.dart';
@@ -50,6 +51,12 @@ final appRoutes = <AppRoute>[
     name: PrintingPage.name,
     builder: (context, state) =>
         const PrintingPage(key: ValueKey(PrintingPage.name)),
+  ),
+  AppRoute(
+    path: StoragePrintingPage.path,
+    name: StoragePrintingPage.name,
+    builder: (context, state) =>
+        const StoragePrintingPage(key: ValueKey(StoragePrintingPage.name)),
   ),
   AppRoute(
     path: SecondPage.path,
