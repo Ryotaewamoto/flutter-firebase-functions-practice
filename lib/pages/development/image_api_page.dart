@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+// 画像に関する API を使用したミニアプリ
 class ImageApiPage extends HookConsumerWidget {
   const ImageApiPage({super.key});
 

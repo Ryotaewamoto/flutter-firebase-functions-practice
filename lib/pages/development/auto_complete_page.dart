@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+// Autocomplete : 検索内容に対して候補をサジェストしてくれる Widget
 class AutoCompletePage extends HookConsumerWidget {
   const AutoCompletePage({super.key});
 

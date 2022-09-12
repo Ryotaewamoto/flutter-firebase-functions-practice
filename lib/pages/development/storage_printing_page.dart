@@ -9,7 +9,7 @@ import 'package:printing/printing.dart';
 
 import '../../utils/loading.dart';
 
-
+// Firebase Storage 内にある pdf ファイルの表示・印刷画面
 class StoragePrintingPage extends HookConsumerWidget {
   const StoragePrintingPage({super.key});
 

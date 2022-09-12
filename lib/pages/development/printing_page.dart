@@ -1,14 +1,12 @@
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:meta/meta.dart';
 import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
 import '../../utils/loading.dart';
 
+// アプリフォルダ内にある pdf ファイルの表示・印刷画面
 class PrintingPage extends HookConsumerWidget {
   const PrintingPage({super.key});
 
@@ -26,16 +24,15 @@ class PrintingPage extends HookConsumerWidget {
           canChangeOrientation: false,
           canChangePageFormat: false,
           canDebug: false,
-          build: ref.read(getCloudStoragePdfProvider),
+          build: ref.read(getRootPdfProvider),
           loadingWidget: const OverlayLoadingWidget(),
         ));
   }
 }
 
-final getCloudStoragePdfProvider =
+final getRootPdfProvider =
     Provider.autoDispose<Future<Uint8List> Function(PdfPageFormat)>(
         (ref) => (format) async {
-              final storageRef = FirebaseStorage.instance.ref();
-              final pdfRef = await storageRef.child('sample.pdf').getData();
-              return pdfRef!;
+              final pdf = await rootBundle.load('assets/sample.pdf');
+              return pdf.buffer.asUint8List();
             });
