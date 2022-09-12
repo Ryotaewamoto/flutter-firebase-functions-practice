@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // Autocomplete : 検索内容に対して候補をサジェストしてくれる Widget
@@ -41,9 +42,7 @@ class AutoCompletePage extends HookConsumerWidget {
                     .update((state) => item);
               },
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const Gap(16),
             Text(
               '検索内容: ${ref.watch(autoCompleteSelectedTextProvider)}',
             ),
