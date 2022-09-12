@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_functions_practice/pages/development/auto_complete_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/development/image_api_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/development/printing_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
@@ -57,6 +58,12 @@ final appRoutes = <AppRoute>[
     name: StoragePrintingPage.name,
     builder: (context, state) =>
         const StoragePrintingPage(key: ValueKey(StoragePrintingPage.name)),
+  ),
+  AppRoute(
+    path: AutoCompletePage.path,
+    name: AutoCompletePage.name,
+    builder: (context, state) =>
+        const AutoCompletePage(key: ValueKey(AutoCompletePage.name)),
   ),
   AppRoute(
     path: SecondPage.path,
