@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_functions_practice/pages/development/auto_complete_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/development/image_api_page.dart';
+import 'package:flutter_firebase_functions_practice/pages/development/pagination_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/development/printing_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/third_page.dart';
@@ -64,6 +65,12 @@ final appRoutes = <AppRoute>[
     name: AutoCompletePage.name,
     builder: (context, state) =>
         const AutoCompletePage(key: ValueKey(AutoCompletePage.name)),
+  ),
+  AppRoute(
+    path: PaginationPage.path,
+    name: PaginationPage.name,
+    builder: (context, state) =>
+        const PaginationPage(key: ValueKey(PaginationPage.name)),
   ),
   AppRoute(
     path: SecondPage.path,

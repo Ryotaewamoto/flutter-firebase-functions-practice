@@ -1,4 +1,5 @@
 import 'package:flutter_firebase_functions_practice/pages/development/auto_complete_page.dart';
+import 'package:flutter_firebase_functions_practice/pages/development/pagination_page.dart';
 
 import '../../models/dev_menu.dart';
 import '../../pages/development/image_api_page.dart';
@@ -26,4 +27,8 @@ final devMenus = <DevMenu>[
     description: 'search text with form field automatically',
     location: AutoCompletePage.location,
   ),
+  DevMenu(
+    title: 'Pagination',
+    description: 'pagination with mock API responsing json',
+    location: PaginationPage.location)
 ];

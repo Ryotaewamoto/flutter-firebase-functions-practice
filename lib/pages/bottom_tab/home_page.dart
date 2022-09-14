@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../third_page.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -42,23 +39,28 @@ class HomePage extends HookConsumerWidget {
 ''',
               softWrap: true,
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed<void>(
-                  context,
-                  SecondPage.location,
-                );
-              },
-              child: const Text('次の画面に進む'),
+            const Gap(16),
+            Row(
+              children: const [
+                Text(
+                  'これから実装予定',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed<void>(
-                  context,
-                  ThirdPage.location,
-                );
-              },
-              child: const Text('ふたつ先の画面に進む'),
+            Row(
+              children: const [
+                Text(
+                  '''
+・Stripe
+・Algolia
+''',
+                  softWrap: true,
+                ),
+              ],
             ),
           ],
         ),

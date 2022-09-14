@@ -11,6 +11,9 @@ class AutoCompletePage extends HookConsumerWidget {
   static const location = path;
 
   static const List<String> listItems = <String>[
+    'りんご',
+    'ばなな',
+    'れもん',
     'apple',
     'banana',
     'melon',
