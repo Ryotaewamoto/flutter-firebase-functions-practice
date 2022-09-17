@@ -2,5 +2,6 @@
   "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "eslint.workingDirectories": ["functions"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "cSpell.words": ["pixabay"]
 }

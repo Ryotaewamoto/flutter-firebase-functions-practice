@@ -5,7 +5,6 @@ import 'package:flutter_firebase_functions_practice/pages/development/pagination
 import 'package:flutter_firebase_functions_practice/pages/development/printing_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/second_page.dart';
 import 'package:flutter_firebase_functions_practice/pages/third_page.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../pages/bottom_tab/about_page.dart';
 import '../../pages/bottom_tab/development_page.dart';
@@ -13,7 +12,6 @@ import '../../pages/bottom_tab/home_page.dart';
 import '../../pages/development/storage_printing_page.dart';
 import '../../pages/main_page.dart';
 import 'app_route.dart';
-import 'app_router_state.dart';
 
 /// AppRoute インスタンスの一覧
 /// 各ページのコンストラクタに引数を渡さない済むように、そのような場合は ProviderScope.override で
