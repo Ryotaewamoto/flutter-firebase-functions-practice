@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PixabayRes {
+  bool get isSuccess => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
   int get totalHits => throw _privateConstructorUsedError;
   List<PixabayData> get hits => throw _privateConstructorUsedError;
@@ -30,7 +32,12 @@ abstract class $PixabayResCopyWith<$Res> {
   factory $PixabayResCopyWith(
           PixabayRes value, $Res Function(PixabayRes) then) =
       _$PixabayResCopyWithImpl<$Res>;
-  $Res call({int total, int totalHits, List<PixabayData> hits});
+  $Res call(
+      {bool isSuccess,
+      String message,
+      int total,
+      int totalHits,
+      List<PixabayData> hits});
 }
 
 /// @nodoc
@@ -43,11 +50,21 @@ class _$PixabayResCopyWithImpl<$Res> implements $PixabayResCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? isSuccess = freezed,
+    Object? message = freezed,
     Object? total = freezed,
     Object? totalHits = freezed,
     Object? hits = freezed,
   }) {
     return _then(_value.copyWith(
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
@@ -71,7 +88,12 @@ abstract class _$$_PixabayResCopyWith<$Res>
           _$_PixabayRes value, $Res Function(_$_PixabayRes) then) =
       __$$_PixabayResCopyWithImpl<$Res>;
   @override
-  $Res call({int total, int totalHits, List<PixabayData> hits});
+  $Res call(
+      {bool isSuccess,
+      String message,
+      int total,
+      int totalHits,
+      List<PixabayData> hits});
 }
 
 /// @nodoc
@@ -86,11 +108,21 @@ class __$$_PixabayResCopyWithImpl<$Res> extends _$PixabayResCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isSuccess = freezed,
+    Object? message = freezed,
     Object? total = freezed,
     Object? totalHits = freezed,
     Object? hits = freezed,
   }) {
     return _then(_$_PixabayRes(
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       total: total == freezed
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
@@ -111,11 +143,19 @@ class __$$_PixabayResCopyWithImpl<$Res> extends _$PixabayResCopyWithImpl<$Res>
 
 class _$_PixabayRes implements _PixabayRes {
   _$_PixabayRes(
-      {this.total = 0,
+      {this.isSuccess = true,
+      this.message = '',
+      this.total = 0,
       this.totalHits = 0,
       final List<PixabayData> hits = const <PixabayData>[]})
       : _hits = hits;
 
+  @override
+  @JsonKey()
+  final bool isSuccess;
+  @override
+  @JsonKey()
+  final String message;
   @override
   @JsonKey()
   final int total;
@@ -132,7 +172,7 @@ class _$_PixabayRes implements _PixabayRes {
 
   @override
   String toString() {
-    return 'PixabayRes(total: $total, totalHits: $totalHits, hits: $hits)';
+    return 'PixabayRes(isSuccess: $isSuccess, message: $message, total: $total, totalHits: $totalHits, hits: $hits)';
   }
 
   @override
@@ -140,6 +180,8 @@ class _$_PixabayRes implements _PixabayRes {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PixabayRes &&
+            const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
+            const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.total, total) &&
             const DeepCollectionEquality().equals(other.totalHits, totalHits) &&
             const DeepCollectionEquality().equals(other._hits, _hits));
@@ -148,6 +190,8 @@ class _$_PixabayRes implements _PixabayRes {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(isSuccess),
+      const DeepCollectionEquality().hash(message),
       const DeepCollectionEquality().hash(total),
       const DeepCollectionEquality().hash(totalHits),
       const DeepCollectionEquality().hash(_hits));
@@ -160,10 +204,16 @@ class _$_PixabayRes implements _PixabayRes {
 
 abstract class _PixabayRes implements PixabayRes {
   factory _PixabayRes(
-      {final int total,
+      {final bool isSuccess,
+      final String message,
+      final int total,
       final int totalHits,
       final List<PixabayData> hits}) = _$_PixabayRes;
 
+  @override
+  bool get isSuccess;
+  @override
+  String get message;
   @override
   int get total;
   @override

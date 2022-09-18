@@ -20,6 +20,8 @@ PixabayData _$PixabayDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PixabayData {
+// このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
+// key の名前と一致させる必要がある。
   String get previewURL => throw _privateConstructorUsedError;
   String get user => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
@@ -120,6 +122,8 @@ class _$_PixabayData implements _PixabayData {
   factory _$_PixabayData.fromJson(Map<String, dynamic> json) =>
       _$$_PixabayDataFromJson(json);
 
+// このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
+// key の名前と一致させる必要がある。
   @override
   @JsonKey()
   final String previewURL;
@@ -176,7 +180,8 @@ abstract class _PixabayData implements PixabayData {
   factory _PixabayData.fromJson(Map<String, dynamic> json) =
       _$_PixabayData.fromJson;
 
-  @override
+  @override // このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
+// key の名前と一致させる必要がある。
   String get previewURL;
   @override
   String get user;

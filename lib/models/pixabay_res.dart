@@ -8,12 +8,22 @@ part 'pixabay_res.freezed.dart';
 @freezed
 class PixabayRes with _$PixabayRes {
   factory PixabayRes({
+    @Default(true) bool isSuccess,
+    @Default('') String message,
     @Default(0) int total,
     @Default(0) int totalHits,
     @Default(<PixabayData>[]) List<PixabayData> hits,
   }) = _PixabayRes;
 
-  factory PixabayRes.fromJson(Map<String, dynamic> json) {
+
+  factory PixabayRes.fromJson({
+    required Map<String, dynamic> json,
+    bool isSuccess = true,
+    String message = '',
+  }) {
+    if (!isSuccess){
+
+    }
     /// hits データに関する型変換を行ってからインスタンスを生成する。
     /// json['hits'] は HTTP レスポンスで dynamic 型で返ってくるので、
     /// リストに変換後、要素を Map<String, dynamic> 型を経由して PixabayData 型に変換する。
@@ -23,6 +33,8 @@ class PixabayRes with _$PixabayRes {
         hits.map((data) => PixabayData.fromJson(data)).toList();
 
     return PixabayRes(
+      isSuccess: isSuccess,
+      message: message,
       total: json['total'],
       totalHits: json['totalHits'],
       hits: pixabayDataList,
