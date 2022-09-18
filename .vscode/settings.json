@@ -3,5 +3,5 @@
   "eslint.workingDirectories": ["functions"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "cSpell.words": ["pixabay"]
+  "cSpell.words": ["dotenv", "pixabay"]
 }
