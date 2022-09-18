@@ -3,7 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../features/pixabay_images/pixabay_images.dart';
 import '../../models/pixabay_res.dart';
-import '../../utils/constants/string.dart';
 import '../../utils/loading.dart';
 
 // 画像に関する API を使用したミニアプリ

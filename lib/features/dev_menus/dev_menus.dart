@@ -8,10 +8,9 @@ import '../../pages/development/storage_printing_page.dart';
 
 final devMenus = <DevMenu>[
   const DevMenu(
-    title: 'API tutorial',
-    description: 'using image API',
-    location: ImageApiPage.location
-  ),
+      title: 'API tutorial',
+      description: 'using image API',
+      location: ImageApiPage.location),
   const DevMenu(
     title: 'Printing',
     description: 'enable pdf preview and printing from root',
@@ -27,8 +26,8 @@ final devMenus = <DevMenu>[
     description: 'search text with form field automatically',
     location: AutoCompletePage.location,
   ),
-  DevMenu(
-    title: 'Pagination',
-    description: 'pagination with mock API responsing json',
-    location: PaginationPage.location)
+  const DevMenu(
+      title: 'Pagination',
+      description: 'pagination with mock API responding json',
+      location: PaginationPage.location),
 ];

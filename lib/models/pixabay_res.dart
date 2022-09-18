@@ -21,9 +21,6 @@ class PixabayRes with _$PixabayRes {
     bool isSuccess = true,
     String message = '',
   }) {
-    if (!isSuccess){
-
-    }
     /// hits データに関する型変換を行ってからインスタンスを生成する。
     /// json['hits'] は HTTP レスポンスで dynamic 型で返ってくるので、
     /// リストに変換後、要素を Map<String, dynamic> 型を経由して PixabayData 型に変換する。

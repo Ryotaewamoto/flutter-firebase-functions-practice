@@ -4,8 +4,6 @@ import 'package:flutter_firebase_functions_practice/models/pixabay_res.dart';
 import 'package:flutter_firebase_functions_practice/utils/constants/string.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../utils/api.dart';
-import '../../utils/connectivity.dart';
 import '../../utils/dio/dio.dart';
 import '../../utils/exceptions/api.dart';
 
@@ -62,6 +60,6 @@ class PixabayRepository {
         isSuccess: false,
         message: e.message ?? generalExceptionMessage,
       );
-    } 
+    }
   }
 }
