@@ -32,7 +32,8 @@ class PrintingPage extends HookConsumerWidget {
 
 final getRootPdfProvider =
     Provider.autoDispose<Future<Uint8List> Function(PdfPageFormat)>(
-        (ref) => (format) async {
-              final pdf = await rootBundle.load('assets/sample.pdf');
-              return pdf.buffer.asUint8List();
-            });
+  (ref) => (format) async {
+    final pdf = await rootBundle.load('assets/sample.pdf');
+    return pdf.buffer.asUint8List();
+  },
+);

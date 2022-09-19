@@ -20,15 +20,19 @@ class PixabayRepository {
 
   final Dio dio;
 
+  /// Pixabay でがぞうを検索する関数
+  /// String のパラメータ q は検索する文字列
   Future<PixabayRes> searchPixabayImages({
     required String q,
   }) async {
     try {
+      // q にスペースが含まれる場合、クエリパラメータとして適切な文字列に変換する。
+      final queryParameter = _validateQueryParameter(q);
       final response = await dio.get<dynamic>(
         '/api',
         queryParameters: {
           'key': dotenv.get('PIXABAY_API_KEY', fallback: null),
-          'q': q,
+          'q': queryParameter,
           'image_type': 'photo'
         },
       );
@@ -61,5 +65,53 @@ class PixabayRepository {
         message: e.message ?? generalExceptionMessage,
       );
     }
+  }
+
+  String _validateQueryParameter(String text) {
+    // テキストの始めと終わりにあるスペースを削除する。
+    final trimmedText = text.trim();
+
+    // スペースが含まれない場合はそのまま返す。
+    if (!trimmedText.contains(' ') && !trimmedText.contains('　')) {
+      return trimmedText;
+    }
+
+    // 半角スペースが含まれる場合
+    if (!trimmedText.contains('　')) {
+      final separatedTexts = trimmedText.split(' ');
+      String q = separatedTexts[0];
+      for (final text in separatedTexts) {
+        if (text == q) {
+          // 初めの文字に対して処理を行わない。
+        } else {
+          q = '$q\+$text';
+        }
+      }
+      return q;
+    }
+
+    // 全角スペースが含まれる場合
+    final weekSeparatedTexts = trimmedText.split(' ');
+    List<String> strengthSeparatedTexts = [];
+    for (final text in weekSeparatedTexts) {
+      if (text.contains('　')) {
+        final elementSeparatedTexts = text.split('　');
+        for (final text in elementSeparatedTexts) {
+          strengthSeparatedTexts.add(text);
+        }
+      } else {
+        strengthSeparatedTexts.add(text);
+      }
+    }
+    String q = strengthSeparatedTexts[0];
+    for (final text in strengthSeparatedTexts) {
+      if (text == q) {
+        // 初めの文字に対して処理を行わない。
+      } else {
+        q = '$q\+$text';
+      }
+    }
+    print('queryParameter: $q');
+    return q;
   }
 }

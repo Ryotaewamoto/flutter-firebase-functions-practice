@@ -20,7 +20,7 @@ mixin _$PixabayRes {
   String get message => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
   int get totalHits => throw _privateConstructorUsedError;
-  List<PixabayData> get hits => throw _privateConstructorUsedError;
+  List<PixabayImage> get hits => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PixabayResCopyWith<PixabayRes> get copyWith =>
@@ -37,7 +37,7 @@ abstract class $PixabayResCopyWith<$Res> {
       String message,
       int total,
       int totalHits,
-      List<PixabayData> hits});
+      List<PixabayImage> hits});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$PixabayResCopyWithImpl<$Res> implements $PixabayResCopyWith<$Res> {
       hits: hits == freezed
           ? _value.hits
           : hits // ignore: cast_nullable_to_non_nullable
-              as List<PixabayData>,
+              as List<PixabayImage>,
     ));
   }
 }
@@ -93,7 +93,7 @@ abstract class _$$_PixabayResCopyWith<$Res>
       String message,
       int total,
       int totalHits,
-      List<PixabayData> hits});
+      List<PixabayImage> hits});
 }
 
 /// @nodoc
@@ -134,7 +134,7 @@ class __$$_PixabayResCopyWithImpl<$Res> extends _$PixabayResCopyWithImpl<$Res>
       hits: hits == freezed
           ? _value._hits
           : hits // ignore: cast_nullable_to_non_nullable
-              as List<PixabayData>,
+              as List<PixabayImage>,
     ));
   }
 }
@@ -147,7 +147,7 @@ class _$_PixabayRes implements _PixabayRes {
       this.message = '',
       this.total = 0,
       this.totalHits = 0,
-      final List<PixabayData> hits = const <PixabayData>[]})
+      final List<PixabayImage> hits = const <PixabayImage>[]})
       : _hits = hits;
 
   @override
@@ -162,10 +162,10 @@ class _$_PixabayRes implements _PixabayRes {
   @override
   @JsonKey()
   final int totalHits;
-  final List<PixabayData> _hits;
+  final List<PixabayImage> _hits;
   @override
   @JsonKey()
-  List<PixabayData> get hits {
+  List<PixabayImage> get hits {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hits);
   }
@@ -208,7 +208,7 @@ abstract class _PixabayRes implements PixabayRes {
       final String message,
       final int total,
       final int totalHits,
-      final List<PixabayData> hits}) = _$_PixabayRes;
+      final List<PixabayImage> hits}) = _$_PixabayRes;
 
   @override
   bool get isSuccess;
@@ -219,7 +219,7 @@ abstract class _PixabayRes implements PixabayRes {
   @override
   int get totalHits;
   @override
-  List<PixabayData> get hits;
+  List<PixabayImage> get hits;
   @override
   @JsonKey(ignore: true)
   _$$_PixabayResCopyWith<_$_PixabayRes> get copyWith =>

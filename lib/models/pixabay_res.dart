@@ -1,4 +1,4 @@
-import 'package:flutter_firebase_functions_practice/models/pixabay_data.dart';
+import 'package:flutter_firebase_functions_practice/models/pixabay_image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../utils/api.dart';
@@ -12,9 +12,8 @@ class PixabayRes with _$PixabayRes {
     @Default('') String message,
     @Default(0) int total,
     @Default(0) int totalHits,
-    @Default(<PixabayData>[]) List<PixabayData> hits,
+    @Default(<PixabayImage>[]) List<PixabayImage> hits,
   }) = _PixabayRes;
-
 
   factory PixabayRes.fromJson({
     required Map<String, dynamic> json,
@@ -27,7 +26,7 @@ class PixabayRes with _$PixabayRes {
     final dynamicHits = json['hits'] as List<dynamic>;
     final hits = dynamicHits.map((e) => toResponseJson(e)).toList();
     final pixabayDataList =
-        hits.map((data) => PixabayData.fromJson(data)).toList();
+        hits.map((data) => PixabayImage.fromJson(data)).toList();
 
     return PixabayRes(
       isSuccess: isSuccess,

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'pixabay_data.dart';
+part of 'pixabay_image.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PixabayData _$PixabayDataFromJson(Map<String, dynamic> json) {
-  return _PixabayData.fromJson(json);
+PixabayImage _$PixabayImageFromJson(Map<String, dynamic> json) {
+  return _PixabayImage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PixabayData {
+mixin _$PixabayImage {
 // このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
 // key の名前と一致させる必要がある。
   String get previewURL => throw _privateConstructorUsedError;
@@ -28,25 +28,25 @@ mixin _$PixabayData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PixabayDataCopyWith<PixabayData> get copyWith =>
+  $PixabayImageCopyWith<PixabayImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PixabayDataCopyWith<$Res> {
-  factory $PixabayDataCopyWith(
-          PixabayData value, $Res Function(PixabayData) then) =
-      _$PixabayDataCopyWithImpl<$Res>;
+abstract class $PixabayImageCopyWith<$Res> {
+  factory $PixabayImageCopyWith(
+          PixabayImage value, $Res Function(PixabayImage) then) =
+      _$PixabayImageCopyWithImpl<$Res>;
   $Res call({String previewURL, String user, int likes});
 }
 
 /// @nodoc
-class _$PixabayDataCopyWithImpl<$Res> implements $PixabayDataCopyWith<$Res> {
-  _$PixabayDataCopyWithImpl(this._value, this._then);
+class _$PixabayImageCopyWithImpl<$Res> implements $PixabayImageCopyWith<$Res> {
+  _$PixabayImageCopyWithImpl(this._value, this._then);
 
-  final PixabayData _value;
+  final PixabayImage _value;
   // ignore: unused_field
-  final $Res Function(PixabayData) _then;
+  final $Res Function(PixabayImage) _then;
 
   @override
   $Res call({
@@ -72,24 +72,25 @@ class _$PixabayDataCopyWithImpl<$Res> implements $PixabayDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_PixabayDataCopyWith<$Res>
-    implements $PixabayDataCopyWith<$Res> {
-  factory _$$_PixabayDataCopyWith(
-          _$_PixabayData value, $Res Function(_$_PixabayData) then) =
-      __$$_PixabayDataCopyWithImpl<$Res>;
+abstract class _$$_PixabayImageCopyWith<$Res>
+    implements $PixabayImageCopyWith<$Res> {
+  factory _$$_PixabayImageCopyWith(
+          _$_PixabayImage value, $Res Function(_$_PixabayImage) then) =
+      __$$_PixabayImageCopyWithImpl<$Res>;
   @override
   $Res call({String previewURL, String user, int likes});
 }
 
 /// @nodoc
-class __$$_PixabayDataCopyWithImpl<$Res> extends _$PixabayDataCopyWithImpl<$Res>
-    implements _$$_PixabayDataCopyWith<$Res> {
-  __$$_PixabayDataCopyWithImpl(
-      _$_PixabayData _value, $Res Function(_$_PixabayData) _then)
-      : super(_value, (v) => _then(v as _$_PixabayData));
+class __$$_PixabayImageCopyWithImpl<$Res>
+    extends _$PixabayImageCopyWithImpl<$Res>
+    implements _$$_PixabayImageCopyWith<$Res> {
+  __$$_PixabayImageCopyWithImpl(
+      _$_PixabayImage _value, $Res Function(_$_PixabayImage) _then)
+      : super(_value, (v) => _then(v as _$_PixabayImage));
 
   @override
-  _$_PixabayData get _value => super._value as _$_PixabayData;
+  _$_PixabayImage get _value => super._value as _$_PixabayImage;
 
   @override
   $Res call({
@@ -97,7 +98,7 @@ class __$$_PixabayDataCopyWithImpl<$Res> extends _$PixabayDataCopyWithImpl<$Res>
     Object? user = freezed,
     Object? likes = freezed,
   }) {
-    return _then(_$_PixabayData(
+    return _then(_$_PixabayImage(
       previewURL: previewURL == freezed
           ? _value.previewURL
           : previewURL // ignore: cast_nullable_to_non_nullable
@@ -116,11 +117,11 @@ class __$$_PixabayDataCopyWithImpl<$Res> extends _$PixabayDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PixabayData implements _PixabayData {
-  _$_PixabayData({this.previewURL = '', this.user = '', this.likes = 0});
+class _$_PixabayImage implements _PixabayImage {
+  _$_PixabayImage({this.previewURL = '', this.user = '', this.likes = 0});
 
-  factory _$_PixabayData.fromJson(Map<String, dynamic> json) =>
-      _$$_PixabayDataFromJson(json);
+  factory _$_PixabayImage.fromJson(Map<String, dynamic> json) =>
+      _$$_PixabayImageFromJson(json);
 
 // このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
 // key の名前と一致させる必要がある。
@@ -136,14 +137,14 @@ class _$_PixabayData implements _PixabayData {
 
   @override
   String toString() {
-    return 'PixabayData(previewURL: $previewURL, user: $user, likes: $likes)';
+    return 'PixabayImage(previewURL: $previewURL, user: $user, likes: $likes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PixabayData &&
+            other is _$_PixabayImage &&
             const DeepCollectionEquality()
                 .equals(other.previewURL, previewURL) &&
             const DeepCollectionEquality().equals(other.user, user) &&
@@ -160,25 +161,25 @@ class _$_PixabayData implements _PixabayData {
 
   @JsonKey(ignore: true)
   @override
-  _$$_PixabayDataCopyWith<_$_PixabayData> get copyWith =>
-      __$$_PixabayDataCopyWithImpl<_$_PixabayData>(this, _$identity);
+  _$$_PixabayImageCopyWith<_$_PixabayImage> get copyWith =>
+      __$$_PixabayImageCopyWithImpl<_$_PixabayImage>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PixabayDataToJson(
+    return _$$_PixabayImageToJson(
       this,
     );
   }
 }
 
-abstract class _PixabayData implements PixabayData {
-  factory _PixabayData(
+abstract class _PixabayImage implements PixabayImage {
+  factory _PixabayImage(
       {final String previewURL,
       final String user,
-      final int likes}) = _$_PixabayData;
+      final int likes}) = _$_PixabayImage;
 
-  factory _PixabayData.fromJson(Map<String, dynamic> json) =
-      _$_PixabayData.fromJson;
+  factory _PixabayImage.fromJson(Map<String, dynamic> json) =
+      _$_PixabayImage.fromJson;
 
   @override // このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
 // key の名前と一致させる必要がある。
@@ -189,6 +190,6 @@ abstract class _PixabayData implements PixabayData {
   int get likes;
   @override
   @JsonKey(ignore: true)
-  _$$_PixabayDataCopyWith<_$_PixabayData> get copyWith =>
+  _$$_PixabayImageCopyWith<_$_PixabayImage> get copyWith =>
       throw _privateConstructorUsedError;
 }

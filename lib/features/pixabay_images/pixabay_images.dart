@@ -13,7 +13,7 @@ final searchWordTextEditingControllerProvider =
 
 /// Pixabay リポジトリの検索キーワードを管理する StateProvider。
 final searchWordProvider =
-    StateProvider.autoDispose<String>((_) => 'yellow+flower');
+    StateProvider.autoDispose<String>((_) => '　sea bird　青 ');
 
 /// Pixabay の Images API をコールし、
 /// そのレスポンスを提供する FutureProvider。

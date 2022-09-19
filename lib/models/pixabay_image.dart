@@ -1,18 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'pixabay_data.freezed.dart';
-part 'pixabay_data.g.dart';
+part 'pixabay_image.freezed.dart';
+part 'pixabay_image.g.dart';
 
 @freezed
-class PixabayData with _$PixabayData {
-  factory PixabayData({
+class PixabayImage with _$PixabayImage {
+  factory PixabayImage({
     // このコンストラクタに渡す引数の名前は HTTP レスポンスで返ってくる JSON データの
     // key の名前と一致させる必要がある。
     @Default('') String previewURL,
     @Default('') String user,
     @Default(0) int likes,
     // List<> hits,
-  }) = _PixabayData;
+  }) = _PixabayImage;
 
-  factory PixabayData.fromJson(Map<String, dynamic> json) => _$PixabayDataFromJson(json);
+  factory PixabayImage.fromJson(Map<String, dynamic> json) =>
+      _$PixabayImageFromJson(json);
 }

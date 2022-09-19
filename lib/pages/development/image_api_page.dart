@@ -15,23 +15,24 @@ class ImageApiPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<PixabayRes> pictureList =
+    final AsyncValue<PixabayRes> pixabayImages =
         ref.watch(searchPixabayImagesResProvider);
     return Scaffold(
       appBar: AppBar(title: const Text('ImageApiPage')),
-      body: pictureList.when(
+      body: pixabayImages.when(
         data: (data) {
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4),
+              crossAxisCount: 4,
+            ),
             itemCount: data.hits.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (_, index) {
               final pixabayData = data.hits[index];
               return Image.network(pixabayData.previewURL);
             },
           );
         },
-        error: (error, stackTrace) => Center(
+        error: (error, _) => Center(
           child: Text(error.toString()),
         ),
         loading: () => const OverlayLoadingWidget(),

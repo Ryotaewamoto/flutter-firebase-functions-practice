@@ -34,8 +34,9 @@ class StoragePrintingPage extends HookConsumerWidget {
 
 final getCloudStoragePdfProvider =
     Provider.autoDispose<Future<Uint8List> Function(PdfPageFormat)>(
-        (ref) => (format) async {
-              final storageRef = FirebaseStorage.instance.ref();
-              final pdfRef = await storageRef.child('sample.pdf').getData();
-              return pdfRef!;
-            });
+  (ref) => (format) async {
+    final storageRef = FirebaseStorage.instance.ref();
+    final pdfRef = await storageRef.child('sample.pdf').getData();
+    return pdfRef!;
+  },
+);
