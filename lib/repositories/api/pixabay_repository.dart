@@ -66,7 +66,8 @@ class PixabayRepository {
       );
     }
   }
-
+  /// ユーザが入力した文字列をクエリパラメータに変換する関数
+  /// 引数は、入力された文字列が入る
   String _validateQueryParameter(String text) {
     // テキストの始めと終わりにあるスペースを削除する。
     final trimmedText = text.trim();
@@ -111,7 +112,6 @@ class PixabayRepository {
         q = '$q\+$text';
       }
     }
-    print('queryParameter: $q');
     return q;
   }
 }

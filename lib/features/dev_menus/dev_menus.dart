@@ -1,9 +1,9 @@
-import 'package:flutter_firebase_functions_practice/pages/development/auto_complete_page.dart';
-import 'package:flutter_firebase_functions_practice/pages/development/pagination_page.dart';
-
 import '../../models/dev_menu.dart';
+import '../../pages/development/auto_complete_page.dart';
 import '../../pages/development/image_api_page.dart';
+import '../../pages/development/pagination_page.dart';
 import '../../pages/development/printing_page.dart';
+import '../../pages/development/riverpod_practice.dart';
 import '../../pages/development/storage_printing_page.dart';
 
 final devMenus = <DevMenu>[
@@ -27,7 +27,13 @@ final devMenus = <DevMenu>[
     location: AutoCompletePage.location,
   ),
   const DevMenu(
-      title: 'Pagination',
-      description: 'pagination with mock API responding json',
-      location: PaginationPage.location),
+    title: 'Pagination',
+    description: 'pagination with mock API responding json',
+    location: PaginationPage.location,
+  ),
+  const DevMenu(
+    title: 'RiverpodPractice',
+    description: 'riverpod practice page',
+    location: RiverpodPracticePage.location,
+  ),
 ];
